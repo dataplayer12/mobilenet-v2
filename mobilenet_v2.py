@@ -78,7 +78,7 @@ class IRLayerStack(nn.Module):
 			bnorm=nn.BatchNorm2d(outch)
 			self.mlist.extend([block, bnorm])
 		
-		self.net=nn.Sequential(self.mlist)
+		self.net=nn.Sequential(*self.mlist)
 	
 	def forward(self, x):
 		return self.net(x)
